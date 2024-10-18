@@ -1,7 +1,6 @@
-import BackIcon from "@/icons/back.svg";
 import HeaderBar from "@/app/components/layout/HeaderBar";
-import Image from "next/image";
 import ProductDetails from "./ProductDetails";
+import BackButton from "@/app/components/common/BackButton";
 
 function ProductDetailPage() {
   const mock = {
@@ -16,15 +15,7 @@ function ProductDetailPage() {
     <div className="bg-[#F3F5F6] h-[100vh]">
       <HeaderBar />
       <div className="w-9/12 mx-auto flex flex-col justify-between gap-2">
-        <button className="flex items-center gap-2 my-8">
-          <Image
-            src={BackIcon}
-            alt="Clique para voltar"
-            width={24}
-            height={24}
-          />
-          <p>Voltar</p>
-        </button>
+        <BackButton />
 
         <div className="flex items-stretch gap-10 justify-center h-100">
           <div className="h-[500px] w-[1200px] bg-white" />
@@ -39,7 +30,9 @@ function ProductDetailPage() {
 
           <div className="flex flex-col items-start gap-4 justify-between">
             <ProductDetails />
-            <button className="bg-sky-700 w-full text-white uppercase px-8 rounded-sm shadow py-2">Adicionar ao carrinho</button>
+            <button className="bg-sky-700 w-full text-white uppercase px-8 rounded-sm shadow py-2">
+              Adicionar ao carrinho
+            </button>
           </div>
         </div>
       </div>
