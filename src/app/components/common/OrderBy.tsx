@@ -2,8 +2,10 @@ function OrderBy() {
   return (
     <select className="rounded-md px-4 bg-transparent text-gray-500 font-light">
       <option>Organizar por</option>
-      <option>Preço maior</option>
-      <option>Preço menor</option>
+      <option>Novidades</option>
+      <option>Preço: Maior - menor</option>
+      <option>Preço: Menor - maior</option>
+      <option>Mais vendidos</option>
     </select>
   );
 }

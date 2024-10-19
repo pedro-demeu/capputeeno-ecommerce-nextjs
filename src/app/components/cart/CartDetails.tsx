@@ -1,31 +1,21 @@
-"use client";
 import Image from "next/image";
 import DeleteIcon from "@/icons/delete.svg"
 import BackButton from "../common/BackButton";
+import { Product } from "@/app/types/product";
 
-interface Product {
-  id: number;
-  src: string;
-  title: string;
-  description: string;
-  price: number;
+async function getProducts() {
+  const res = await fetch('http://localhost:3001/products');
+  const data = await res.json();
+  return data;
 }
-function CartDetails() {
-  const products: Product[] = Array.from({ length: 3 }).map((_, index) => {
-    const randomId = Math.floor(Math.random() * 1000); // Gera um ID aleatório para pegar a imagem
 
-    return {
-      id: Math.abs(Math.random()),
-      title: `Caneca de cerâmica rústica ${randomId}`,
-      price: Number(randomId),
-      src: `https://picsum.photos/id/${index + 1}/400/200`,
-      description: "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
-    };
-  });
+async function CartDetails() {
+  const products: Product[] = await getProducts();
+  
 
   return (
     <div className="h-full">
-      <BackButton />
+      <BackButton onBack={() => {}} />
       <div className="mb-4">
         <h2 className="uppercase text-2xl">Seu carrinho</h2>
         <p className="font-light">

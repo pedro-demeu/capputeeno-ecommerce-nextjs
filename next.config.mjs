@@ -4,9 +4,15 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: "https",
-          hostname: "picsum.photos",
+          hostname: "coffee.alexflipnote.dev",
           pathname: "/**", // Adiciona essa linha para permitir todas as rotas do domínio
         },
+        {
+          protocol: "https",
+          hostname: "*",
+          pathname: "/**", // Adiciona essa linha para permitir todas as rotas do domínio
+        },
+        
       ],
     },
   };

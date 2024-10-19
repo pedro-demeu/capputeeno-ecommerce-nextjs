@@ -1,3 +1,100 @@
 {
-  "tags": [{ "slug": "react" }, { "slug": "next" }]
+  "products": [
+    {
+      "id": 1,
+      "title": "Caneca de cerâmica rústica",
+      "tag": "mug",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/caneca-06.jpg",
+      "price": "37.45",
+      "description": "A Caneca de cerâmica rústica é perfeita para quem ama café e estilo. Feita com material de alta qualidade, ela é ideal para acompanhar suas manhãs e trazer um toque rústico ao seu dia."
+    },
+    {
+      "id": 2,
+      "title": "Camiseta not today.",
+      "tag": "tshirt",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-05.jpg",
+      "price": "27.33",
+      "description": "A Camiseta not today. é uma camiseta estilosa e confortável, feita para expressar sua personalidade. Ideal para o dia a dia, combina com diferentes ocasiões e looks casuais."
+    },
+    {
+      "id": 3,
+      "title": "Caneca Black Ring",
+      "tag": "mug",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/caneca-04.jpg",
+      "price": "42.90",
+      "description": "A Caneca Black Ring é perfeita para quem ama café e estilo. Feita com material de alta qualidade, ela é ideal para acompanhar suas manhãs e trazer um toque rústico ao seu dia."
+    },
+    {
+      "id": 4,
+      "title": "Camiseta Broken Saints",
+      "tag": "tshirt",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-03.jpg",
+      "price": "24.11",
+      "description": "A Camiseta Broken Saints é uma camiseta estilosa e confortável, feita para expressar sua personalidade. Ideal para o dia a dia, combina com diferentes ocasiões e looks casuais."
+    },
+    {
+      "id": 5,
+      "title": "Camiseta Outcast",
+      "tag": "tshirt",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-06.jpg",
+      "price": "31.98",
+      "description": "A Camiseta Outcast é uma camiseta estilosa e confortável, feita para expressar sua personalidade. Ideal para o dia a dia, combina com diferentes ocasiões e looks casuais."
+    },
+    {
+      "id": 6,
+      "title": "Caneca The Grounds",
+      "tag": "mug",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/caneca-05.jpg",
+      "price": "39.15",
+      "description": "A Caneca The Grounds é perfeita para quem ama café e estilo. Feita com material de alta qualidade, ela é ideal para acompanhar suas manhãs e trazer um toque rústico ao seu dia."
+    },
+    {
+      "id": 7,
+      "title": "Camiseta evening",
+      "tag": "tshirt",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-02.jpg",
+      "price": "29.77",
+      "description": "A Camiseta evening é uma camiseta estilosa e confortável, feita para expressar sua personalidade. Ideal para o dia a dia, combina com diferentes ocasiões e looks casuais."
+    },
+    {
+      "id": 8,
+      "title": "Caneca preto fosco",
+      "tag": "mug",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/caneca-01.jpg",
+      "price": "21.99",
+      "description": "A Caneca preto fosco é perfeita para quem ama café e estilo. Feita com material de alta qualidade, ela é ideal para acompanhar suas manhãs e trazer um toque rústico ao seu dia."
+    },
+    {
+      "id": 9,
+      "title": "Caneca Never settle",
+      "tag": "mug",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/caneca-03.jpg",
+      "price": "44.12",
+      "description": "A Caneca Never settle é perfeita para quem ama café e estilo. Feita com material de alta qualidade, ela é ideal para acompanhar suas manhãs e trazer um toque rústico ao seu dia."
+    },
+    {
+      "id": 10,
+      "title": "Camiseta DREAMER",
+      "tag": "tshirt",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-01.jpg",
+      "price": "25.69",
+      "description": "A Camiseta DREAMER é uma camiseta estilosa e confortável, feita para expressar sua personalidade. Ideal para o dia a dia, combina com diferentes ocasiões e looks casuais."
+    },
+    {
+      "id": 11,
+      "title": "Caneca Decaf! P&Co",
+      "tag": "mug",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/caneca-02.jpg",
+      "price": "30.34",
+      "description": "A Caneca Decaf! P&Co é perfeita para quem ama café e estilo. Feita com material de alta qualidade, ela é ideal para acompanhar suas manhãs e trazer um toque rústico ao seu dia."
+    },
+    {
+      "id": 12,
+      "title": "Camiseta Ramones",
+      "tag": "tshirt",
+      "src": "https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-04.jpg",
+      "price": "41.23",
+      "description": "A Camiseta Ramones é uma camiseta estilosa e confortável, feita para expressar sua personalidade. Ideal para o dia a dia, combina com diferentes ocasiões e looks casuais."
+    }
+  ]
 }
