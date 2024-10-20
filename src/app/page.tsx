@@ -16,9 +16,9 @@ export default async function Home() {
           <SelectOrdenation />
         </section>
 
-        <div className="flex justify-end">
+        {/* <div className="flex justify-end">
           <FeedPagination />
-        </div>
+        </div> */}
 
         <section
           id="feed"
@@ -26,10 +26,11 @@ export default async function Home() {
         >
           <ProductListView />
         </section>
+        <div className="h-10" />
 
-        <div className="flex justify-end mt-2 pb-10">
+        {/* <div className="flex justify-end mt-2 pb-10">
           <FeedPagination />
-        </div>
+        </div> */}
       </div>
     </div>
   );

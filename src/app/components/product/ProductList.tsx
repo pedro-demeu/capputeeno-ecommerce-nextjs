@@ -1,5 +1,6 @@
 "use client";
 
+// import { useSearch } from "@/app/_store/searchStore";
 import { useSelectOrdenation } from "@/app/_store/selectOrdenationStore";
 import { useActiveTab } from "@/app/_store/tabStore";
 import { Product } from "@/app/types/product";
@@ -10,6 +11,7 @@ function ProductList({ products }: { products: Product[] }) {
   const router = useRouter();
   const { activeTab } = useActiveTab();
   const { selectedValue } = useSelectOrdenation();
+  // const { searchName } = useSearch();
 
   const handleClick = (id: number) => {
     router.push(`/product/${id}`);
@@ -19,7 +21,7 @@ function ProductList({ products }: { products: Product[] }) {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {products
         .filter((_product) => {
-          if (activeTab === "all") return 1;
+          if (activeTab === "all") return true;
           return _product.tag === activeTab;
         })
         .sort((a, b) => {

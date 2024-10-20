@@ -5,10 +5,18 @@ import Search from "@/icons/search.svg";
 import Cart from "@/icons/cart.svg";
 import { useRouter } from "next/navigation";
 import { useProductCartStore } from "@/app/_store/cartStore";
+import { useSearch } from "@/app/_store/searchStore";
+import { ChangeEvent } from "react";
 
 function HeaderBar() {
   const router = useRouter();
   const { cart } = useProductCartStore();
+  const { searchName, setSearchName } = useSearch();
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setSearchName(e.target.value);
+  };
+
   return (
     <nav className="bg-white w-full h-[80px] flex items-center">
       <div className="w-9/12 flex items-center justify-between mx-auto">
@@ -28,6 +36,8 @@ function HeaderBar() {
             <input
               id="search"
               name="search"
+              value={searchName}
+              onChange={handleSearchChange}
               placeholder="Procurando por algo específico?"
               className="border-none bg-transparent text-gray-600 w-80"
             />
@@ -40,7 +50,10 @@ function HeaderBar() {
               />
             </button>
           </div>
-          <button className="relative inline-flex items-center" onClick={() => router.push('/cart')}>
+          <button
+            className="relative inline-flex items-center"
+            onClick={() => router.push("/cart")}
+          >
             <Image
               src={Cart}
               alt="Icone de carrinho de compras"
