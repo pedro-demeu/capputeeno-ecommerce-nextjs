@@ -4,9 +4,11 @@ import Logo from "@/images/logo.png";
 import Search from "@/icons/search.svg";
 import Cart from "@/icons/cart.svg";
 import { useRouter } from "next/navigation";
+import { useCartStore } from "@/app/_store/cartStore";
 
 function HeaderBar() {
   const router = useRouter();
+  const { cart } = useCartStore();
   return (
     <nav className="bg-white w-full h-[80px] flex items-center">
       <div className="w-9/12 flex items-center justify-between mx-auto">
@@ -38,13 +40,18 @@ function HeaderBar() {
               />
             </button>
           </div>
-          <button>
+          <button className="relative inline-flex items-center">
             <Image
               src={Cart}
               alt="Icone de carrinho de compras"
               width={24}
               height={24}
             />
+            {!!cart.length && (
+              <div className="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 border-1 border-white rounded-full -top-2 -end-2 dark:border-gray-900 text-[12px]">
+                {cart.length}
+              </div>
+            )}
           </button>
         </div>
       </div>

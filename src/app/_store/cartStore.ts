@@ -5,14 +5,14 @@ type Cart = {
 };
 
 interface CartState {
-  carts: Cart[];
+  cart: Cart[];
   addItem: ({ id }: { id: number }) => void;
 }
 
 export const useCartStore = create<CartState>((set) => ({
-  carts: [],
+  cart: [],
   addItem: ({ id }) =>
     set((state) => ({
-      carts: [...state.carts, { id }],
+      cart: [...state.cart, { id }],
     })),
 }));
