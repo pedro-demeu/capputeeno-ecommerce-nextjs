@@ -1,5 +1,5 @@
 "use client";
-import { ActiveTabType, useActiveTab } from "@/app/_store/tabStore";
+import { ActiveTabType, useActiveTab } from "@/_store/tabStore";
 
 type Tab = {
   label: string;

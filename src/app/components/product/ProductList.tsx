@@ -1,7 +1,7 @@
 "use client";
 
-import { useSelectOrdenation } from "@/app/_store/selectOrdenationStore";
-import { useActiveTab } from "@/app/_store/tabStore";
+import { useSelectOrdenation } from "@/_store/selectOrdenationStore";
+import { useActiveTab } from "@/_store/tabStore";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
