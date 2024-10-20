@@ -1,18 +1,20 @@
 import { create } from "zustand";
-
-type Cart = {
-  id: number;
-};
+import { Product } from "../types/product";
 
 interface CartState {
-  cart: Cart[];
-  addItem: ({ id }: { id: number }) => void;
+  cart: Product[];
+  addProduct: (product: Product) => void;
+  removeProduct: (productId: number) => void;
 }
 
-export const useCartStore = create<CartState>((set) => ({
+export const useProductCartStore = create<CartState>((set) => ({
   cart: [],
-  addItem: ({ id }) =>
+  addProduct: (product) =>
     set((state) => ({
-      cart: [...state.cart, { id }],
+      cart: [...state.cart, product],
+    })),
+  removeProduct: (productId) =>
+    set((state) => ({
+      cart: state.cart.filter((_cart) => _cart.id !== productId),
     })),
 }));

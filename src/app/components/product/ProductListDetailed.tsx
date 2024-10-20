@@ -1,42 +1,32 @@
 import Image from "next/image";
-import DeleteIcon from "@/icons/delete.svg"
 import { Product } from "@/app/types/product";
+import DeleteIcon from "@/icons/delete.svg";
 
-async function getProducts() {
-  const res = await fetch('http://localhost:3001/products');
-  const data = await res.json();
-  return data;
-}
-
-async function CartDetails() {
-  const products: Product[] = await getProducts();
-  
+function ProductListDetailed({
+  products,
+  onRemove,
+}: {
+  products: Product[];
+  onRemove: (productId: number) => void;
+}) {
 
   return (
-    <div className="h-full">
-      
-
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       {products.map((product) => (
-        <div key={product.id} className="flex gap-5 w-full">
+        <div key={product.id} className="flex gap-5 bg-white rounded-lg">
           <Image
             alt={product.description}
             src={product.src}
             width={300}
             height={300}
-            className="rounded"
+            className="rounded-l-lg rounded-bl-lg"
           />
 
-          <div className="w-full py-5 pr-4 flex flex-col justify-between">
+          <div className="py-5 pr-4 flex flex-col justify-between">
             <div className="flex justify-between mb-4">
               <h3 className="text-2xl font-light">{product.title}</h3>
-              <button>
-                <Image
-                  src={DeleteIcon}
-                  alt="delete"
-                  width={24}
-                  height={24}
-                />
+              <button onClick={() => onRemove(product.id)}>
+                <Image src={DeleteIcon} alt="delete" width={24} height={24} />
               </button>
             </div>
 
@@ -54,9 +44,8 @@ async function CartDetails() {
           </div>
         </div>
       ))}
-      </div>
     </div>
   );
 }
 
-export default CartDetails;
+export default ProductListDetailed;

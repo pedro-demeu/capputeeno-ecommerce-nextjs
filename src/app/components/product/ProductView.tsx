@@ -6,11 +6,11 @@ import BackButton from "../common/BackButton";
 import ProductDetails from "@/app/product/[slug]/ProductDetails";
 import { useRouter } from "next/navigation";
 import Cart from "@/icons/cart-white.svg";
-import { useCartStore } from "@/app/_store/cartStore";
+import { useProductCartStore } from "@/app/_store/cartStore";
 
 function ProductView({ product }: { product: Product }) {
   const router = useRouter();
-  const { addItem } = useCartStore();
+  const { addProduct } = useProductCartStore();
   return (
     <div className="bg-[#F3F5F6] h-[100vh] ">
       <HeaderBar />
@@ -37,7 +37,7 @@ function ProductView({ product }: { product: Product }) {
             <ProductDetails product={product} />
             <button
               onClick={() => {
-                addItem({ id: product.id });
+                addProduct(product);
                 router.push("/");
               }}
               className="bg-sky-700 hover:bg-sky-500 transition-all w-full flex items-center gap-4 justify-center text-white uppercase px-8 rounded-sm shadow py-2"
