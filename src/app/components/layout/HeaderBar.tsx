@@ -1,13 +1,25 @@
+"use client";
 import Image from "next/image";
 import Logo from "@/images/logo.png";
 import Search from "@/icons/search.svg";
 import Cart from "@/icons/cart.svg";
+import { useRouter } from "next/navigation";
 
 function HeaderBar() {
+  const router = useRouter();
   return (
     <nav className="bg-white w-full h-[80px] flex items-center">
       <div className="w-9/12 flex items-center justify-between mx-auto">
-        <Image src={Logo} alt="Capputeeno Logo" width={220} height={80} />
+        <Image
+          src={Logo}
+          alt="Capputeeno Logo"
+          width={220}
+          height={80}
+          onClick={() => {
+            router.push("/");
+          }}
+          className="hover:cursor-pointer"
+        />
 
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between bg-[#F3F5F6] rounded px-4 py-3 gap-6 mr-4">

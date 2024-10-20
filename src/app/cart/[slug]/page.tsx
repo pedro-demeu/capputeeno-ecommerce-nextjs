@@ -1,7 +1,6 @@
 import HeaderBar from "@/app/components/layout/HeaderBar";
 import CartDetails from "@/app/components/cart/CartDetails";
 import ResumeOrder from "@/app/components/cart/ResumeOrder";
-import BackButton from "@/app/components/common/BackButton";
 
 function CartViewPage() {
   //   const mock = {
