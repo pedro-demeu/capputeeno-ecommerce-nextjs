@@ -1,5 +1,5 @@
 "use client"
-import { useSelectOrdenation } from "@/_store/selectOrdenationStore";
+import { useSelectOrdenation } from "@/app/_store/selectOrdenationStore";
 import { Ordenation } from "@/app/types/ordenation";
 import { ChangeEvent } from "react";
 
