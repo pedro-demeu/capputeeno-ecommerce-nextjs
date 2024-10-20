@@ -3,21 +3,9 @@ import OrderBy from "./components/common/OrderBy";
 import TabFilters from "./components/common/TabFilters";
 import HeaderBar from "./components/layout/HeaderBar";
 import ProductListView from "./components/product/ProductListView";
-import { Product } from "./types/product";
-
-async function getProducts() {
-  const res = await fetch('http://localhost:3001/products');
-  const data = await res.json();
-  return data;
-}
-
 
 export default async function Home() {
-  const products: Product[] = await getProducts();
 
-  console.log({
-    posts: products,
-  });
   return (
     <div className="bg-[#F3F5F6]">
       <HeaderBar />
