@@ -1,5 +1,6 @@
 "use client";
 
+import { useSelectOrdenation } from "@/app/_store/selectOrdenationStore";
 import { useActiveTab } from "@/app/_store/tabStore";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { useRouter } from "next/navigation";
 function ProductList({ products }: { products: Product[] }) {
   const router = useRouter();
   const { activeTab } = useActiveTab();
+  const { selectedValue } = useSelectOrdenation();
 
   const handleClick = (id: number) => {
     router.push(`/product/${id}`);
@@ -16,10 +18,30 @@ function ProductList({ products }: { products: Product[] }) {
   return (
     <>
       {products
-        .filter((_products) => {
+        .filter((_product) => {
           if (activeTab === "all") return 1;
+          return _product.tag === activeTab;
+        })
+        .sort((a, b) => {
+          if (selectedValue === "newest") {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            return new Date(b.date) - new Date(a.date);
+          }
 
-          return _products.tag === activeTab;
+          if (selectedValue === "best_sellers") {
+            return b.sales - a.sales;
+          }
+
+          if (selectedValue === "price_desc") {
+            return b.price - a.price;
+          }
+
+          if (selectedValue === "price_asc") {
+            return a.price - b.price;
+          }
+
+          return 0;
         })
         .map(({ id, title, price, src }) => (
           <div
