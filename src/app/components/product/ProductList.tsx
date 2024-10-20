@@ -16,7 +16,7 @@ function ProductList({ products }: { products: Product[] }) {
   };
 
   return (
-    <>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {products
         .filter((_product) => {
           if (activeTab === "all") return 1;
@@ -30,7 +30,7 @@ function ProductList({ products }: { products: Product[] }) {
           }
 
           if (selectedValue === "best_sellers") {
-            return b.sales - a.sales;
+            return Number(b.sales) - Number(a.sales);
           }
 
           if (selectedValue === "price_desc") {
@@ -44,26 +44,28 @@ function ProductList({ products }: { products: Product[] }) {
           return 0;
         })
         .map(({ id, title, price, src }) => (
-          <div
-            key={id}
-            className="gap-4 bg-white rounded"
-            onClick={() => handleClick(id)}
-          >
+          <div key={id} className="gap-4 bg-white rounded">
             <Image
               src={src}
               alt={title}
-              className="object-cover rounded-md"
+              className="rounded-md hover:cursor-pointer"
               height={300}
-              width={256}
+              width={500}
+              onClick={() => handleClick(id)}
             />
             <div className="ml-4 mb-4">
               <h3 className="font-sans text-lg mt-2 font-light">{title}</h3>
               <div className="border w-11/12" />
-              <p className="text-gray-700 font-bold text-sm">R$ {price}</p>
+              <p className="text-gray-700 font-bold text-xl pt-4 mb-2">
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(price)}
+              </p>
             </div>
           </div>
         ))}
-    </>
+    </div>
   );
 }
 
