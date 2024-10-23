@@ -1,15 +1,8 @@
 import Image from "next/image";
+import ProductDeleteButton from "../core/ProductDeleteButton";
 import { Product } from "@/app/types/product";
-import DeleteIcon from "@/icons/delete.svg";
 
-function ProductListDetailed({
-  products,
-  onRemove,
-}: {
-  products: Product[];
-  onRemove: (productId: number) => void;
-}) {
-
+function ProductListDetailed({ products }: { products: Product[] }) {
   return (
     <div className="flex flex-col gap-4">
       {products.map((product) => (
@@ -25,9 +18,7 @@ function ProductListDetailed({
           <div className="py-5 pr-4 flex flex-col justify-between">
             <div className="flex justify-between mb-4">
               <h3 className="text-2xl font-light">{product.title}</h3>
-              <button onClick={() => onRemove(product.id)}>
-                <Image src={DeleteIcon} alt="delete" width={24} height={24} />
-              </button>
+              <ProductDeleteButton id={product.id} />
             </div>
 
             <p>{product.description}</p>

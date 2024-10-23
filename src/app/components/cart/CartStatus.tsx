@@ -1,16 +1,9 @@
-import { useProductCartStore } from "@/app/_store/cartStore";
+import { Product } from "@/app/types/product";
 
-function CartStatus() {
-  const { cart } = useProductCartStore();
+function CartStatus({ products }: { products: Product[] }) {
+  const totalLength = products.length;
+  const totalValue = products.reduce((acc, item) => acc + Number(item.price), 0);
 
-  const totalLength = cart.length;
-  const totalValue = cart.reduce((acc, item) => acc + Number(item.price), 0);
-
-  console.log({
-    cart,
-    totalLength,
-    totalValue
-  })
   return (
     <div className="m-2">
       <h2 className="uppercase text-2xl">Seu carrinho</h2>
@@ -19,10 +12,10 @@ function CartStatus() {
           totalLength === 1 ? "1 Produto" : `${totalLength} Produtos`
         })`}
         <span className="font-bold ml-4">
-        {new Intl.NumberFormat("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        }).format(totalValue)}
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(totalValue)}
         </span>
       </p>
     </div>
