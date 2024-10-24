@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Bem vindo ao Capputeeno E-commerce 
+
+Imagem de demonstração:
+
+<img src="./public/demo.png" alt="descrição do projeto de E-commerce com NextJS">
+
 ## Getting Started
 
 First, run the development server:
