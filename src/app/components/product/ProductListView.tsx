@@ -1,31 +1,37 @@
-"use client"
-import { useEffect, useState } from "react";
+import TryAgainButton from "../common/TryAgainButton";
 import ProductList from "./ProductList";
-import { Product } from "@/app/types/product";
 
-function ProductListView() {
-  const [products, setProducts] = useState<Product[] | null>(null);
-  const [loading, setLoading] = useState(true);
+async function ProductListView() {
+  let products = null;
+  let error = null;
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const res = await fetch("http://localhost:3001/products");
-        const data = await res.json();
-        setProducts(data);
-      } catch (err) {
-        console.error("Erro ao carregar os produtos:", err);
-        setProducts(null);
-      } finally {
-        setLoading(false);
-      }
+  try {
+    const response = await fetch("http://localhost:3001/products");
+    if (!response.ok) {
+      throw new Error("Failed to fetch the products");
     }
 
-    fetchProducts();
-  }, []);
+    const productAsString = await response.text();
 
-  if (loading) return <h1>Carregando...</h1>;
-  if (!products) return <h1>Dados indisponíveis</h1>;
+    if (productAsString) {
+      products = JSON.parse(productAsString);
+    } else {
+      throw new Error("Empty response from server");
+    }
+  } catch (e) {
+    error = (e as Error).message;
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-10 h-[100vh]">
+        <div>Produtos Indisponíveis: {error}</div>
+        <TryAgainButton />
+      </div>
+    );
+  }
+
+  if (!products) return <h1>Sem produtos cadastrados</h1>;
 
   return <ProductList products={products} />;
 }

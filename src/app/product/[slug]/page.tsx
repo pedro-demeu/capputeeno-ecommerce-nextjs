@@ -1,35 +1,46 @@
-"use client"; // Garantir que é client-side
-
-import { useState, useEffect } from "react";
+import BackButton from "@/app/components/common/BackButton";
 import ProductView from "@/app/components/product/ProductView";
-import { Product } from "@/app/types/product";
-import { useParams } from "next/navigation";
 
-function ProductViewPage() {
-  const { slug } = useParams(); // Obtém o slug da URL
-  const [product, setProduct] = useState<Product | null>(null); // Estado para armazenar o produto
-  const [loading, setLoading] = useState(true); // Estado para o carregamento
+interface Params {
+  slug: string; // Define que o parâmetro 'id' é uma string
+}
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await fetch(`http://localhost:3001/products/${slug}`);
-        const data = await res.json();
-        setProduct(data);
-      } catch (error) {
-        console.error("Erro ao buscar o produto:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+async function ProductViewPage({ params }: { params: Params }) {
+  const { slug } = params;
+  let product = null;
+  let error = null;
 
-    if (slug) {
-      fetchProduct(); // Apenas busca se o slug existir
+  console.log({
+    params,
+  })
+  try {
+    const response = await fetch(`http://localhost:3001/products/${slug}`);
+
+    console.log({
+      response,
+    })
+    if (!response.ok) {
+      throw new Error("Failed to fetch the product");
     }
-  }, [slug]); // Atualiza sempre que o slug mudar
 
-  if (loading) {
-    return <div>Carregando...</div>;
+    const productAsString = await response.text();
+    if (productAsString) {
+      product = JSON.parse(productAsString);
+    } else {
+      throw new Error("Empty response from server");
+    }
+    
+  } catch (err) {
+    error = (err as Error).message;
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-10 h-[100vh]">
+        <div>Produto Indisponível: {error}</div>
+        <BackButton />
+      </div>
+    );
   }
 
   if (!product) {

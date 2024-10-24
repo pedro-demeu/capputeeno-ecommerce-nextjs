@@ -16,7 +16,7 @@ function ProductView({ product }: { product: Product }) {
       <HeaderBar />
       <div className="w-9/12 mx-auto flex flex-col justify-between gap-2">
         <div className="mt-6 mb-3">
-          <BackButton onBack={() => router.push("/")} />
+          <BackButton  />
         </div>
         <div className="flex items-stretch gap-10 justify-center">
           <Image
